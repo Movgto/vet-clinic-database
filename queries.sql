@@ -76,3 +76,116 @@ SELECT species, AVG(escape_attempts) FROM animals
 WHERE date_of_birth > '1990-01-01'
 AND date_of_birth < '2000-01-01'
 GROUP BY species;
+
+/*QUERY MULTIPLE TABLES*/
+
+/*ANIMALS TABLE*/
+
+/*SET SPECIES IDS*/
+UPDATE animals
+SET species_id = (
+  SELECT id FROM species
+  WHERE name = 'Digimon'
+)
+WHERE name LIKE '%mon';
+UPDATE animals
+SET species_id = (
+  SELECT id FROM species
+  WHERE name = 'Pokemon'
+)
+WHERE species_id IS NULL;
+
+/*SET OWNER IDS*/
+
+UPDATE animals
+SET owner_id = (
+  SELECT id FROM owners
+  WHERE full_name = 'Sam Smith'
+)
+WHERE name = 'Agumon';
+
+UPDATE animals
+SET owner_id = (
+  SELECT id FROM owners
+  WHERE full_name = 'Jennifer Orwell'
+)
+WHERE name IN ('Gabumon', 'Pikachu');
+
+UPDATE animals
+SET owner_id = (
+  SELECT id FROM owners
+  WHERE full_name = 'Bob'
+)
+WHERE name IN ('Devimon', 'Plantmon');
+
+UPDATE animals
+SET owner_id = (
+  SELECT id FROM owners
+  WHERE full_name = 'Melody Pond'
+)
+WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+
+UPDATE animals
+SET owner_id = (
+  SELECT id FROM owners
+  WHERE full_name = 'Dean Winchester'
+)
+WHERE name IN ('Angemon', 'Boarmon');
+
+/*QUERIES*/
+
+SELECT
+A.name,
+O.full_name AS owner
+FROM animals A
+JOIN owners O
+ON A.owner_id = O.id
+WHERE O.full_name = 'Melody Pond';
+
+SELECT
+A.name,
+S.name AS species
+FROM animals A
+JOIN species S
+ON S.id = A.species_id
+WHERE S.name = 'Pokemon';
+
+SELECT
+O.full_name,
+A.name AS animal
+FROM owners O
+LEFT JOIN animals A
+ON A.owner_id = O.id;
+
+SELECT S.name, COUNT(*)
+FROM animals A
+JOIN species S
+ON S.id = A.species_id
+GROUP BY S.name;
+
+SELECT
+O.full_name,
+A.name
+FROM animals A
+JOIN species S
+ON S.id = A.species_id
+JOIN owners O
+ON O.id = A.owner_id
+WHERE O.full_name = 'Jennifer Orwell'
+AND S.name = 'Digimon';
+
+SELECT
+A.name,
+O.full_name
+FROM animals A
+JOIN owners O
+ON A.owner_id = O.id
+WHERE A.escape_attempts <= 0
+AND O.full_name = 'Dean Winchester';
+
+SELECT O.full_name AS owner, COUNT(A.name) AS animal
+FROM animals A
+JOIN owners O
+ON A.owner_id = O.id
+GROUP BY O.full_name
+ORDER BY animal DESC;
