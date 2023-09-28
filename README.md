@@ -86,12 +86,6 @@ After you're finished please remove all the comments and instructions!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Not yet available.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -105,13 +99,15 @@ In order to run this project you need to have `PostgreSQL` installed in your sys
 You can download the program [here](https://www.postgresql.org/download/)
 ### Setup
 
-Clone this repository to your desired folder:
+1. Clone this repository to your desired folder:
 
 
 ```sh
   cd my-folder
   git clone https://github.com/Movgto/vet-clinic-database
 ```
+
+2. Paste the code from the `.sql` files on the `PostgreSQL` terminal to create the `animals` table, apply the corresponding modifications, and display specific information from the table using queries.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
