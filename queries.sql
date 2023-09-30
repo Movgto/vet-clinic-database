@@ -194,7 +194,7 @@ ORDER BY animal DESC;
 
 /*"Who was the last animal seen by William Tatcher?"*/
 
-SELECT TOP 1
+SELECT
 A.name AS animal_name,
 vets.name AS vet_name,
 visits.date_of_visit
@@ -204,13 +204,14 @@ ON A.id = visits.animal_id
 JOIN vets
 ON vets.id = visits.vet_id
 WHERE vets.name = 'William Tatcher'
-ORDER BY visits.date_of_visit DESC;
+ORDER BY visits.date_of_visit DESC
+LIMIT 1;
 
 /*"How many different animals did Stephanie Mendez see?"*/
 
-SELECT DISTINCT
+SELECT
 vets.name,
-COUNT(DISTINCT A.name) AS animals_attended
+COUNT(DISTINCT A.name) AS different_animals_attended
 FROM visits
 JOIN animals A
 ON A.id = visits.animal_id

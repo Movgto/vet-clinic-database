@@ -29,7 +29,6 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -146,8 +145,6 @@ Feel free to check the [issues page](../../issues/).
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
-> Write a message to encourage readers to support your project
 
 If you like this project show your support by starring it, thank you!
 
