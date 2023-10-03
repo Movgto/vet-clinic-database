@@ -29,6 +29,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Schema Diagram](#schema-diagram)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -84,6 +85,12 @@ After you're finished please remove all the comments and instructions!
 - **SQL queries used to select objects from the table based on conditions and parameters, and also select only some fields of the data structure based on the corresponding name.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Schema Diagram <a name="schema-diagram"></a>
+
+![Database Schema](./schema/schema.png)
+
+> A diagram representing the organization of this database.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
